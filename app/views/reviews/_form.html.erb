@@ -1,0 +1,16 @@
+<%= simple_form_for(@review) do |f| %>
+  <%= f.error_notification %>
+  <div class="form-inputs">
+    <%= f.label :state %>
+    <%= f.select :state, options_from_collection_for_select(State.all, :abvr, :name, 'MI') %>
+    <%= f.label :plate, "Plate (7 characters max, no spaces)" %>
+    <%= f.text_field :plate, maxlength: 7, :size => 150 %>
+    <%= f.label :category %>
+    <%= f.select :category, options_from_collection_for_select(Category.all, :name, :name, 'General/Other') %>
+    <%= f.label :stars, "Rating (1 is worst, 5 is best)" %>
+    <%= f.select :stars, options_from_collection_for_select(Rating.all, :id, :stars, 3) %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

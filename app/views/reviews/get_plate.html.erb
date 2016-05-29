@@ -1,0 +1,10 @@
+<%= form_tag("/averages", method: "get") do %>
+  <%# f.error_notification %>
+
+    <%= label_tag(:qstate, "State:") %>
+    <%= select_tag :qstate, options_from_collection_for_select(State.all, :abvr, :name, "MI") %>
+    <%= label_tag(:qplate, "Plate (7 characters max, no spaces)") %>
+    <%= text_field_tag :qplate %>
+    <%= submit_tag 'Find'%>
+
+<% end %>
