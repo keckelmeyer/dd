@@ -28,13 +28,16 @@ class ReviewsController < ApplicationController
     #turning = Review.average(:stars).where(:category = Turning, :state = #{:state}", "plate = #{:plate}" )
     @qstate = params[:qstate]
     @qplate = params[:qplate]
+
     @qplate.upcase!
+    (@qplate.delete!(' ')||'').gsub(/\D/)
     @turning = Review.where(:category => "Turning", :state => @qstate, :plate => @qplate ).average(:stars)
     @merging = Review.where(:category => "Merging", :state =>@qstate, :plate => @qplate ).average(:stars)
     @parking = Review.where(:category => "Parking", :state => @qstate, :plate => @qplate ).average(:stars)
     @speed = Review.where(:category => "Speed", :state => @qstate, :plate => @qplate ).average(:stars)
     @general = Review.where(:category => "General/Other", :state => @qstate, :plate => @qplate ).average(:stars)
     @overall = Review.where(:state=> @qstate, :plate => @qplate ).average(:stars)
+
 =begin
     if overall.nil?
       render 'get_plate'
@@ -57,7 +60,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
-        format.html { render :new }
+        format.html { render :show }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end

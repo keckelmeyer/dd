@@ -13,3 +13,42 @@
  *= require_tree .
  *= require_self
  */
+ body{
+   background-color: red;
+   color: white;
+ }
+main{
+  background-color: red;
+  color: white;
+  align-content: center;
+  text-align: center;
+}
+p{
+  text-align: center;
+  color: white;
+}
+h3{
+  color: white;
+}
+h2{
+  color: white;
+}
+h1{
+  color: white;
+}
+h6{
+  color: white;
+  font-size: small;
+}
+form{
+  color: white;
+}
+div{
+  color: white;
+}
+label{
+  color: white;
+}
+input{
+  text-align: center;
+}

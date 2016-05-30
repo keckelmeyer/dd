@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  resources :plates
-  resources :reviews
+  resources :reviews, only: [:new, :create, :show]
   #resources :categories
   #resources :states
   #resources :ratings

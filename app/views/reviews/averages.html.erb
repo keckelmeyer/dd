@@ -6,6 +6,7 @@
     <td>Speed</td>
     <td>Parking</td>
     <td>General/Other</td>
+    <td>Overall</td>
   </tr>
   <tr>
     <td><%= @qstate %> <%= @qplate %></td>
@@ -14,5 +15,9 @@
     <td><%= @speed %></td>
     <td><%= @parking %></td>
     <td><%= @general %></td>
+    <td><%= @overall %></td>
   </tr>
 </table>
+<% if @overall == '' %>
+  <h2>No reviews were submitted against your plate.</h2>
+<% end %>

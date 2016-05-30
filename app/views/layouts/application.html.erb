@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Dd" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Damn Driver" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Dd" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%# Modernizr is required for Zurb Foundation %>
@@ -15,8 +15,21 @@
       <%= render 'layouts/navigation' %>
     </header>
     <main role="main">
-       <%= render 'layouts/messages' %>
-       <%= yield %>
+      <%= image_tag("Damn.png") %>
+      <%= image_tag("Driver.png") %>
+      <%= render 'layouts/messages' %>
+      <%= yield %>
     </main>
+
+    <p>Like us on Facebook</p>
+    <p>
+      <%= link_to 'https://www.facebook.com/DamnDriver' do %>
+      <%= image_tag "facebook.png" %>
+      <% end %>
+    </p>
+
+
+    <p></p>
+
   </body>
 </html>
