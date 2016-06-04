@@ -5,6 +5,9 @@ class Review < ActiveRecord::Base
   validates :plate, presence: true, length: { in: 1..7}, format: { with: VALID_PLATE_REGEX }
   validates :category, presence: true
   validates :stars, presence: true
+
+
+
   def make_uppercase
     self.plate.upcase!
   end

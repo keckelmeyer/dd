@@ -15,6 +15,9 @@ class ReviewsController < ApplicationController
   # GET /reviews/new
   def new
     @review = Review.new
+    geocoder_result = Geocoder.search(request.remote_ip)
+    #geocoder_result = Geocoder.search("152.208.23.252")
+    @location = geocoder_result.empty? ? 'MI' : geocoder_result.first.state_code
   end
 
   # GET /reviews/1/edit
@@ -25,7 +28,6 @@ class ReviewsController < ApplicationController
   end
 
   def averages
-    #turning = Review.average(:stars).where(:category = Turning, :state = #{:state}", "plate = #{:plate}" )
     @qstate = params[:qstate]
     @qplate = params[:qplate]
 
@@ -100,4 +102,6 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:state, :plate, :category, :stars)
     end
+
+
 end

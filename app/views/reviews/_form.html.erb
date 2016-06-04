@@ -2,7 +2,7 @@
   <%= f.error_notification %>
   <div class="form-inputs">
     <%= f.label :state%>
-    <%= f.select :state, options_from_collection_for_select(State.all, :abvr, :name, 'MI') %>
+    <%= f.select :state, options_from_collection_for_select(State.all, :abvr, :name, @location) %>
     <%= f.label :plate, "Plate (7 characters max, no spaces)" %>
     <%= f.text_field :plate, maxlength: 7, :size => 150 %>
     <%= f.label :category %>
@@ -15,4 +15,4 @@
   </div>
 <% end %>
 <p></p>
-<p></p>
+<p><%= console %></p>
