@@ -17,7 +17,15 @@ class ReviewsController < ApplicationController
     @review = Review.new
     geocoder_result = Geocoder.search(request.remote_ip)
     #geocoder_result = Geocoder.search("152.208.23.252")
-    @location = geocoder_result.empty? ? 'MI' : geocoder_result.first.state_code
+    if geocoder_result.empty? then
+      @location = 'MI'
+    else
+      @location = geocoder_result.first.state_code
+    end
+    if @location == "" then
+      @location = 'MI'
+    end
+    #@location = (geocoder_result.empty? || geocoder_result == "")  ? 'MI' : geocoder_result.first.state_code
   end
 
   # GET /reviews/1/edit

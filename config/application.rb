@@ -22,6 +22,7 @@ module Dd
 
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
+    config.assets.initialize_on_precompile = false
 
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
